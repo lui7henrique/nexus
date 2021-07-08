@@ -1,0 +1,29 @@
+.champion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--shape);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  color: var(--subtitle);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  .imageContainer {
+    img {
+      max-width: 80px;
+      max-height: 80px;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+  }
+
+  p {
+    text-align: justify;
+  }
+}
