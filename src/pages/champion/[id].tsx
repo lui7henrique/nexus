@@ -54,7 +54,6 @@ export default function Champion({
   const semiFormatted = Object.values(unformattedChampion);
 
   const champion = semiFormatted[0];
-  console.log(champion);
 
   const splashArt = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
 
@@ -143,18 +142,24 @@ export async function getStaticProps({ params }: any) {
     props: {
       champion,
     },
+    revalidate: 60 * 60 * 24, // 24 hours
   };
 }
 
 export async function getStaticPaths() {
+  const res = await fetch(
+    "http://ddragon.leagueoflegends.com/cdn/11.14.1/data/en_US/champion.json"
+  );
+  const { data } = await res.json();
+  const champions = Object.keys(data);
+
+  const paths = champions.map((champion) => ({
+    params: { id: champion },
+  }));
+  console.log(paths);
+
   return {
-    paths: [
-      {
-        params: {
-          id: "Aatrox",
-        },
-      },
-    ],
-    fallback: false,
+    paths,
+    fallback: "blocking",
   };
 }

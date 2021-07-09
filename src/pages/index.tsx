@@ -76,9 +76,6 @@ export default function Home({ data }: any) {
               <MdSearch size={25} />
             </button>
           </form>
-          <button onClick={handleSetLanguage} className="changeLanguageButton">
-            {currentLanguage}
-          </button>
         </div>
       </div>
 

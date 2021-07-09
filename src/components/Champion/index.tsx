@@ -19,9 +19,7 @@ export function Champion({
         />
       </div>
       <div className="infos">
-        <h3>
-          <strong>{name}</strong>
-        </h3>
+        <h3>{name}</h3>
       </div>
     </div>
   );

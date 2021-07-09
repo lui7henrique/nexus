@@ -10,6 +10,10 @@
   cursor: pointer;
   color: var(--subtitle);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
   &:hover {
     filter: brightness(0.8);
   }
@@ -22,8 +26,9 @@
       border-radius: 50%;
     }
   }
-
-  p {
-    text-align: justify;
+  .infos {
+    h3 {
+      font-size: 1rem;
+    }
   }
 }

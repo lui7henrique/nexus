@@ -15,8 +15,7 @@
       display: flex;
       .search {
         display: flex;
-        padding-right: 1rem;
-        width: 95%;
+        width: 100%;
         input {
           border: none;
           outline: none;
@@ -34,20 +33,16 @@
           border-radius: 0 0.5rem 0.5rem 0;
           padding-right: 1rem;
           background: var(--primary);
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            filter: brightness(0.8);
+          }
           svg {
             margin-left: 1rem;
             color: var(--title);
           }
         }
-      }
-      .changeLanguageButton {
-        border-radius: 0.5rem;
-        border: none;
-        outline: none;
-        background: var(--shape);
-        padding: 1rem;
-        color: var(--subtitle);
-        font-weight: bold;
       }
     }
   }
@@ -62,6 +57,9 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
 
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
       @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
       }
