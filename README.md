@@ -1,34 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 👑 LolChampions
 
-## Getting Started
+## 💻 Projeto
 
-First, run the development server:
+LolChampions é excelente para quem gosta de explorar todo os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
+> Acesse em: Não disponível ainda :(
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 🧠 To develop
+- [x] Readme
+- [x] Listagem de campeões
+- [ ] Página de campeão (com splashart, nome, categoria(s), skins, lore, infos, stats, skills, dicas pra jogar com e dicas para jogar contra)
+- [ ] Busca por invocador
+- [ ] Listagem dos dados do invocador (maestrias, nível, elo, winrate)
+- [ ] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👩‍💻 Technologies
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Esse projeto foi feito usando as seguintes tecnologias: 
+- [ReactJS](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [NextJS](https://nextjs.org/)
+- [SASS](https://sass-lang.com/)
+- [Styled-Components](https://styled-components.com/)
+- [Riot Games - League of Legends API](https://developer.riotgames.com/docs/lol)
