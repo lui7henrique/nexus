@@ -7,8 +7,7 @@ import styles from "./styles.module.scss";
 import { capitalize } from "../../utils/capitalize";
 import { Header } from "../../components/Header";
 
-const defaultLanguage = "pt_BR";
-const defaultEndpoint = `http://ddragon.leagueoflegends.com/cdn/11.13.1/data/${defaultLanguage}/champion.json`;
+const defaultEndpoint = `http://ddragon.leagueoflegends.com/cdn/11.13.1/data/pt_BR/champion.json`;
 
 export async function getServerSideProps() {
   const res = await fetch(defaultEndpoint);
@@ -23,10 +22,11 @@ export async function getServerSideProps() {
 }
 
 export default function Champions({ data }: any) {
-  const [currentLanguage, setCurrentLanguage] = useState(defaultLanguage);
+  // page with all champions
   const [currentPage, setCurrentPage] = useState(
-    `http://ddragon.leagueoflegends.com/cdn/11.13.1/data/${currentLanguage}/champion.json`
+    `http://ddragon.leagueoflegends.com/cdn/11.13.1/data/pt_BR/champion.json`
   );
+
   const initialValues = Object.values(data.data);
   const [champions, setChampions] = useState<ChampionType[]>(
     initialValues as ChampionType[]
@@ -40,17 +40,7 @@ export default function Champions({ data }: any) {
       setChampions(Object.values(data.data));
     }
     request();
-  }, [champions, currentPage]);
-
-  function handleSubmitSearch(event: React.FormEvent) {
-    event.preventDefault();
-
-    setCurrentPage(
-      `http://ddragon.leagueoflegends.com/cdn/11.13.1/data/${currentLanguage}/champion/${capitalize(
-        currentTarget
-      )}.json`
-    );
-  }
+  }, [currentPage]);
 
   return (
     <div className={styles.container}>
@@ -60,11 +50,11 @@ export default function Champions({ data }: any) {
       <main className={styles.content}>
         <section className={styles.infos}>
           <h1>🚧</h1>
-          <p>Em construção...</p>
+          <p>Em construção</p>
         </section>
 
         <div className={styles.champions}>
-          <form className={styles.searchChampion} onSubmit={handleSubmitSearch}>
+          {/* <form className={styles.searchChampion} onSubmit={handleSubmitSearch}>
             <input
               type="text"
               placeholder="Procure um campeão pelo nome completo 😈"
@@ -73,7 +63,7 @@ export default function Champions({ data }: any) {
             <button className={styles.searchButton}>
               <MdSearch size={25} />
             </button>
-          </form>
+          </form> */}
 
           <section className={styles.championsList}>
             {champions.map((champion) => {
