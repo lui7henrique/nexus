@@ -17,6 +17,7 @@ export async function getServerSideProps() {
   return {
     props: {
       data,
+      revalidate: 60 * 60 * 24 * 30, // 1 month
     },
   };
 }

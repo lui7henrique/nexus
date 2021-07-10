@@ -5,6 +5,7 @@ import { ChampionFull } from "../../types/types";
 import { MdArrowBack } from "react-icons/md";
 import Link from "next/link";
 import styled from "styled-components";
+import styles from "./styles.module.scss";
 
 interface IHeadingStyled {
   background: string;
@@ -58,10 +59,10 @@ export default function Champion({
   const splashArt = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <title>Nexus | {champion.name}</title>
 
-      <div className="header">
+      <div className={styles.header}>
         <Link href="/champions">
           <a>
             <button className="back-button">
@@ -77,16 +78,16 @@ export default function Champion({
         </div>
       </Banner>
 
-      <div className="information">
-        <div className="texts">
+      <div className={styles.information}>
+        <div className={styles.texts}>
           <div>
             <h1>LORE</h1>
             <p>{champion.lore}</p>
           </div>
         </div>
 
-        <div className="skills">
-          <div className="skill">
+        <div className={styles.skills}>
+          <div className={styles.skill}>
             <img
               src={`http://ddragon.leagueoflegends.com/cdn/11.13.1/img/passive/${champion.passive.image.full}`}
               alt=""
@@ -98,7 +99,7 @@ export default function Champion({
           </div>
           {champion.spells.map((spell) => {
             return (
-              <div key={spell.id} className="skill">
+              <div key={spell.id} className={styles.skill}>
                 <img
                   src={`http://ddragon.leagueoflegends.com/cdn/11.13.1/img/spell/${spell.id}.png`}
                   alt=""
@@ -113,13 +114,13 @@ export default function Champion({
         </div>
       </div>
 
-      <div className="divider">
+      <div className={styles.divider}>
         <h1>Skins</h1>
       </div>
-      <div className="skins">
+      <div className={styles.skins}>
         {champion.skins.map((skin) => {
           return (
-            <div key={skin.id} className="skin">
+            <div key={skin.id} className={styles.skin}>
               <h1>{skin.name}</h1>
               <img
                 src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_${skin.num}.jpg`}
