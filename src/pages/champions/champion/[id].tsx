@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { ChampionFull } from "../../types/types";
+import { ChampionFull } from "../../../types/types";
 import { MdArrowBack } from "react-icons/md";
 import Link from "next/link";
 import styled from "styled-components";
@@ -60,7 +60,7 @@ export default function Champion({
   return (
     <div className="container">
       <div className="header">
-        <Link href="/">
+        <Link href="/champions/all">
           <a>
             <button className="back-button">
               <MdArrowBack size={25} />
