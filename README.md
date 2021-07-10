@@ -2,7 +2,7 @@
 
 ## 💻 Projeto
 
-LolChampions é excelente para quem gosta de explorar todo os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
+LolChampions é excelente para quem gosta de explorar todos os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
 > Acesse em: Não disponível ainda :(
 
 ## 🧠 To develop
