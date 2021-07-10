@@ -4,89 +4,89 @@
   display: grid;
   flex-direction: column;
   gap: 1rem;
-}
 
-.content {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 1fr 3fr;
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-
-  gap: 1rem;
-
-  .infos {
-    @media (max-width: 768px) {
-      display: none;
-    }
-    background: var(--shape);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    > h1 {
-      font-size: 64px;
-    }
-    > p {
-      margin-top: 1rem;
-      color: var(--subtitle);
-    }
-  }
-
-  .champions {
+  .content {
     display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 3fr;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
     gap: 1rem;
 
-    .searchChampion {
-      display: flex;
-      width: 100%;
-      height: 50px;
-      input {
-        border: none;
-        outline: none;
-        width: 100%;
-        background: var(--shape);
-        border-radius: 0.5rem 0 0 0.5rem;
-        padding: 0 1rem;
-        color: var(--subtitle);
+    .infos {
+      @media (max-width: 768px) {
+        display: none;
       }
+      background: var(--shape);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      button {
-        border: none;
-        outline: none;
-        background: var(--shape);
-        border-radius: 0 0.5rem 0.5rem 0;
-        padding-right: 1rem;
-        background: var(--primary);
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          filter: brightness(0.8);
-        }
-        svg {
-          margin-left: 1rem;
-          color: var(--title);
-        }
+      > h1 {
+        font-size: 64px;
+      }
+      > p {
+        margin-top: 1rem;
+        color: var(--subtitle);
       }
     }
 
-    .championsList {
+    .champions {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-
-      @media (max-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      @media (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      @media (max-width: 500px) {
-        grid-template-columns: repeat(1, 1fr);
-      }
       gap: 1rem;
+
+      .searchChampion {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        input {
+          border: none;
+          outline: none;
+          width: 100%;
+          background: var(--shape);
+          border-radius: 0.5rem 0 0 0.5rem;
+          padding: 0 1rem;
+          color: var(--subtitle);
+        }
+
+        button {
+          border: none;
+          outline: none;
+          background: var(--shape);
+          border-radius: 0 0.5rem 0.5rem 0;
+          padding-right: 1rem;
+          background: var(--primary);
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            filter: brightness(0.8);
+          }
+          svg {
+            margin-left: 1rem;
+            color: var(--title);
+          }
+        }
+      }
+
+      .championsList {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+
+        @media (max-width: 1024px) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 500px) {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        gap: 1rem;
+      }
     }
   }
 }

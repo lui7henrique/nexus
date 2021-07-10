@@ -66,7 +66,7 @@ export default function Champions({ data }: any) {
           <form className={styles.searchChampion} onSubmit={handleSubmitSearch}>
             <input
               type="text"
-              placeholder="Search by a champion or summoner 😈"
+              placeholder="Procure um campeão pelo nome completo 😈"
               onChange={(e) => setCurrentTarget(e.target.value)}
             />
             <button className={styles.searchButton}>

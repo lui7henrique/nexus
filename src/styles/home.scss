@@ -1,0 +1,49 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  flex-direction: column;
+  gap: 2rem;
+
+  .content {
+    display: flex;
+    align-items: center;
+
+    .imageHero {
+      transform: translateX(-50px);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      margin: 25% auto;
+      transform: translateX(50px);
+      z-index: 99;
+
+      form {
+        display: flex;
+        margin-top: 1rem;
+
+        input {
+          background: var(--shape);
+          border: none;
+          outline: none;
+          padding: 0 1rem;
+          width: 500px;
+          color: var(--text);
+        }
+        button {
+          border: none;
+          outline: none;
+          background: var(--primary);
+          border-radius: 0 0.5rem 0.5rem 0;
+
+          svg {
+            margin: 0.5rem;
+            color: var(--title);
+          }
+        }
+      }
+    }
+  }
+}
