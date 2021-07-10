@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import { MdSearch } from "react-icons/md";
 import { Header } from "../components/Header";
 
-function handleSubmitSearch(event: React.FormEvent) {
-  event.preventDefault();
-}
-
 export default function Home() {
+  const [summoner, setSummoner] = useState("");
+
+  function handleSubmitSearch(e: React.FormEvent) {
+    e.preventDefault();
+  }
+
   return (
     <div className="container">
       <title>Nexus | Home</title>
@@ -17,7 +19,7 @@ export default function Home() {
       <main className="content">
         <section className="hero">
           <span>Seja bem-vindo(a) ao Nexus! 🤗</span>
-          <h1>Busque por históricos de partidas</h1>
+          <h1>Busque por histórico de partidas</h1>
           <p>
             ou informações sobre{" "}
             <strong>
@@ -36,7 +38,7 @@ export default function Home() {
             <input
               type="text"
               placeholder="Busque por um invocador"
-              onChange={(e) => console.log(e.target.value)}
+              onChange={(e) => setSummoner(e.target.value)}
             />
             <button>
               <MdSearch size={25} />

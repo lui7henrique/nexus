@@ -11,6 +11,10 @@
 
     img {
       transform: translateX(-50px);
+      @media (max-width: 768px) {
+        width: 20%;
+        height: 20%;
+      }
     }
 
     .hero {
@@ -29,18 +33,24 @@
           border: none;
           outline: none;
           padding: 0 1rem;
-          width: 500px;
+          width: 170%;
           color: var(--text);
+          border-radius: 0.5rem 0 0 0.5rem;
         }
         button {
           border: none;
           outline: none;
           background: var(--primary);
           border-radius: 0 0.5rem 0.5rem 0;
+          transition: all 0.2s ease-in-out;
 
           svg {
             margin: 0.5rem;
             color: var(--title);
+          }
+
+          &:hover {
+            filter: brightness(0.8);
           }
         }
       }

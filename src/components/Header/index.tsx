@@ -7,7 +7,6 @@ export function Header() {
   return (
     <header className={styles.headerContainer}>
       <div>
-        <img src="gm.png" alt="" />
         <Link href="/">
           <a>
             <h1 className={styles.logo}>Nexus</h1>
