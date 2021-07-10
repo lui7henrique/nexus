@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 export default function Home() {
   return (
     <div className="container">
+      <title>Nexus | Home</title>
       <Header />
     </div>
   );

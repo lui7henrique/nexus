@@ -16,7 +16,7 @@ export function Header() {
           <Link href="/">
             <a>Home</a>
           </Link>
-          <Link href="/champions/all">
+          <Link href="/champions">
             <a>Champions</a>
           </Link>
           <Link href="/items">
@@ -30,8 +30,7 @@ export function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          <SiGithub />
-          Github
+          <SiGithub size={15} />
         </a>
       </button>
     </header>

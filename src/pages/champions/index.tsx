@@ -53,10 +53,13 @@ export default function Champions({ data }: any) {
 
   return (
     <div className={styles.container}>
+      <title>Nexus | Champions</title>
+
       <Header />
       <main className={styles.content}>
         <section className={styles.infos}>
-          <h1>caralho</h1>
+          <h1>🚧</h1>
+          <p>Em construção...</p>
         </section>
 
         <div className={styles.champions}>
