@@ -15,3 +15,11 @@ export async function getMatchesByEncryptedAccountId(
 export async function getChampionsMasteryBySummoner(id: string) {
   return await api.Champion.masteryBySummoner(id, Constants.Regions.BRAZIL);
 }
+
+export async function getMatchByGameId(gameId: number) {
+  return api.Match.get(gameId, Constants.Regions.BRAZIL);
+}
+
+export async function getLeagueEntriesBySummonerID(id: string) {
+  return api.League.bySummoner(id, Constants.Regions.BRAZIL);
+}
