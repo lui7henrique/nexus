@@ -22,4 +22,4 @@ Esse projeto foi feito usando as seguintes tecnologias:
 - [SASS](https://sass-lang.com/)
 - [Styled-Components](https://styled-components.com/)
 - [Riot Games - League of Legends API](https://developer.riotgames.com/docs/lol)
-- [Twited](https://github.com/Sansossio/twisted)
+- [Twisted](https://github.com/Sansossio/twisted)
