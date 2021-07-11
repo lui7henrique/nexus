@@ -8,7 +8,7 @@ import {
   getSummonerByName,
 } from "../api/matches";
 import styles from "./styles.module.scss";
-import { SummonerByName, MatchType, Mastery } from "./types";
+import { SummonerByName, MatchType, Mastery } from "../../types/summoner";
 
 export default function Summoner(summonerByName: any) {
   const summoner: SummonerByName = summonerByName.summonerByName;
