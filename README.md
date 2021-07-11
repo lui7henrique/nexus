@@ -5,7 +5,7 @@
 LolChampions é excelente para quem gosta de explorar todos os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
 > Acesse em: Não disponível ainda :(
 
-## 🧠 To develop
+## 🧠 To do
 - [x] Readme
 - [x] Listagem de campeões
 - [x] Página de campeão (com splashart, nome, categoria(s), skins, lore, infos, stats, skills, dicas pra jogar com e dicas para jogar contra)
@@ -13,7 +13,7 @@ LolChampions é excelente para quem gosta de explorar todos os campeões do univ
 - [ ] Listagem dos dados do invocador (maestrias, nível, elo, winrate)
 - [ ] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
 
-## 👩‍💻 Technologies
+## 👩‍💻 Tecnologias
 
 Esse projeto foi feito usando as seguintes tecnologias: 
 - [ReactJS](https://reactjs.org)
