@@ -22,6 +22,9 @@ export function Header() {
           <Link href="/items">
             <a>Items</a>
           </Link>
+          <Link href="/icons">
+            <a>Ícones</a>
+          </Link>
         </nav>
       </div>
       <button>
