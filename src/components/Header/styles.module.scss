@@ -43,6 +43,12 @@
         &:hover {
           color: var(--primary);
         }
+
+        &.active {
+          color: var(--primary);
+          font-weight: bold;
+          border-bottom: 2px solid var(--primary);
+        }
       }
     }
   }

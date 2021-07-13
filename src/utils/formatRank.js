@@ -16,6 +16,5 @@ export function formatRank (rank){
       return 7;
     case 'GRANDMASTER': 
       return 7;
-    case 'Mangoes':
   }
 }

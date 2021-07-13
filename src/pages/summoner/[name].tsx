@@ -21,6 +21,7 @@ import { winRate } from "../../utils/winrate";
 import { aroundNumber } from "../../utils/aroundNumber";
 import Link from "next/link";
 import { Tier } from "../../components/Tier";
+import { Mastery as MasteryItem } from "../../components/Mastery";
 
 export default function SummonerPage(summonerByName: any) {
   const summoner: Summoner = summonerByName.summonerByName;
@@ -47,38 +48,20 @@ export default function SummonerPage(summonerByName: any) {
           </div>
           <h1>{summoner.name} </h1>
 
-          <Tier unformattedRank={rank[1]} />
-          <Tier unformattedRank={rank[0]} />
+          {rank.length >= 2 ? (
+            <>
+              <Tier unformattedRank={rank[0]} />
+              <Tier unformattedRank={rank[1]} />
+            </>
+          ) : (
+            <Tier unformattedRank={rank[0]} />
+          )}
 
-          <ul className={styles.mastries}>
+          <div className={styles.mastries}>
             {masteries.map((mastery) => {
-              return (
-                <div className={styles.mastery} key={mastery.championId}>
-                  <img
-                    src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${mastery.championId}.png`}
-                    alt="Maestry champion icon"
-                    className={styles.iconMastery}
-                  />
-                  <img
-                    src={`https://lolg-cdn.porofessor.gg/img/masteries/lvl${mastery.championLevel}.png`}
-                    alt={`Maestria nível ${mastery.championLevel}`}
-                    className={styles.masteryLevel}
-                  />
-                  <div>
-                    <p>{mastery.championPoints}</p>
-                    <span></span>
-                    {mastery.chestGranted && (
-                      <img
-                        src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-collections/global/default/images/item-element/hextech-chest.png"
-                        alt="Chest"
-                        className={styles.chest}
-                      />
-                    )}
-                  </div>
-                </div>
-              );
+              return <MasteryItem key={mastery.championId} mastery={mastery} />;
             })}
-          </ul>
+          </div>
         </section>
 
         <aside>
@@ -173,16 +156,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const summonerByName: Summoner = (await dataSummoner).response;
 
   const dataMatches = getMatchesByEncryptedAccountId(summonerByName.accountId);
-  const matches = (await dataMatches).response.matches.slice(0, 9);
+  const matches = (await dataMatches).response.matches.slice(0, 2);
+
+  const dataRank = getLeagueEntriesBySummonerID(summonerByName.id);
+  const rank = (await dataRank).response;
 
   const dataMasteries = getChampionsMasteryBySummoner(summonerByName.id);
   const masteries = (await dataMasteries).response;
 
   const dataMatch = getMatchByGameId(matches[1].gameId);
   const matchInfos = (await dataMatch).response;
-
-  const dataRank = getLeagueEntriesBySummonerID(summonerByName.id);
-  const rank = (await dataRank).response;
 
   return {
     props: {

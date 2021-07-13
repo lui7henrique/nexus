@@ -159,7 +159,6 @@ export async function getStaticPaths() {
   const paths = champions.map((champion) => ({
     params: { id: champion },
   }));
-  console.log(paths);
 
   return {
     paths,

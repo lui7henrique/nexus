@@ -1,0 +1,36 @@
+.mastery {
+  background: #161617;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  .iconMastery {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+
+  .masteryLevel {
+    position: absolute;
+    width: 20px;
+    width: 20px;
+    transform: translateY(-25px);
+  }
+
+  div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .chest {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

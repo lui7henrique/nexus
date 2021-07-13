@@ -3,6 +3,7 @@ import { Rank } from "../../types/summoner";
 import { transformNumber } from "../../utils/transformNumber";
 import { winRate } from "../../utils/winrate";
 import styles from "./styles.module.scss";
+import { FormatGame } from "../../utils/formatGame";
 
 export function Tier(unformattedRank: any) {
   const rank: Rank = unformattedRank.unformattedRank;
@@ -25,7 +26,7 @@ export function Tier(unformattedRank: any) {
         alt=""
       />
       <div>
-        <h5>{formatQueueType(rank.queueType)}</h5>
+        <h5>{FormatGame(rank.queueType)}</h5>
         <h4>
           {rank.tier} {rank.rank}
         </h4>

@@ -2,8 +2,10 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import { SiGithub } from "react-icons/si";
+import { useRouter } from "next/router";
 
 export function Header() {
+  const { asPath } = useRouter();
   return (
     <header className={styles.headerContainer}>
       <div>
@@ -14,16 +16,18 @@ export function Header() {
         </Link>
         <nav>
           <Link href="/">
-            <a>Home</a>
+            <a className={asPath === "/" ? styles.active : ""}>Home</a>
           </Link>
           <Link href="/champions">
-            <a>Champions</a>
+            <a className={asPath === "/champions" ? styles.active : ""}>
+              Champions
+            </a>
           </Link>
           <Link href="/items">
-            <a>Items</a>
+            <a className={asPath === "/items" ? styles.active : ""}>Items</a>
           </Link>
           <Link href="/icons">
-            <a>Ícones</a>
+            <a className={asPath === "/icons" ? styles.active : ""}>Icons</a>
           </Link>
         </nav>
       </div>

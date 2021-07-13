@@ -1,0 +1,57 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  flex-direction: column;
+  gap: 1rem;
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    > div {
+      display: flex;
+      width: 270px;
+      align-items: center;
+      background: var(--shape);
+      overflow: hidden;
+      filter: brightness(0.8);
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        filter: brightness(1);
+        padding: 0 1rem 0 0;
+
+        h1 {
+          margin-left: 1rem;
+          font-size: 0.9rem;
+          padding: 0 1rem 0 0;
+        }
+      }
+
+      &:hover {
+        filter: brightness(1);
+      }
+
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px 0 0 10px;
+        -moz-transition: all 0.3s;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s;
+
+        &:hover {
+          -moz-transform: scale(1.2);
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}

@@ -6,20 +6,21 @@ import { ChampionType } from "../../components/Champion/types";
 import styles from "./styles.module.scss";
 import { capitalize } from "../../utils/capitalize";
 import { Header } from "../../components/Header";
+import { GetStaticProps } from "next";
 
-const defaultEndpoint = `http://ddragon.leagueoflegends.com/cdn/11.13.1/data/pt_BR/champion.json`;
-
-export async function getServerSideProps() {
-  const res = await fetch(defaultEndpoint);
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(
+    "http://ddragon.leagueoflegends.com/cdn/11.13.1/data/pt_BR/champion.json"
+  );
   const data = await res.json();
 
   return {
     props: {
       data,
-      revalidate: 60 * 60 * 24 * 30, // 1 month
     },
+    revalidate: 60 * 60 * 24 * 30, // 1 month
   };
-}
+};
 
 export default function Champions({ data }: any) {
   // page with all champions
@@ -31,7 +32,6 @@ export default function Champions({ data }: any) {
   const [champions, setChampions] = useState<ChampionType[]>(
     initialValues as ChampionType[]
   );
-  const [currentTarget, setCurrentTarget] = useState("");
 
   useEffect(() => {
     async function request() {
@@ -54,17 +54,6 @@ export default function Champions({ data }: any) {
         </section>
 
         <div className={styles.champions}>
-          {/* <form className={styles.searchChampion} onSubmit={handleSubmitSearch}>
-            <input
-              type="text"
-              placeholder="Procure um campeão pelo nome completo 😈"
-              onChange={(e) => setCurrentTarget(e.target.value)}
-            />
-            <button className={styles.searchButton}>
-              <MdSearch size={25} />
-            </button>
-          </form> */}
-
           <section className={styles.championsList}>
             {champions.map((champion) => {
               return (
