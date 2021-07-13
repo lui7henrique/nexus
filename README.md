@@ -23,7 +23,7 @@ LolChampions é excelente para quem gosta de explorar todos os campeões do univ
 - [x] Página de ícones
 - [ ] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
 
-&nbsp;!
+&nbsp;
 
 
 ## 👩‍💻 Tecnologias
