@@ -9,8 +9,8 @@ LolChampions é excelente para quem gosta de explorar todos os campeões do univ
 - [x] Readme
 - [x] Listagem de campeões
 - [x] Página de campeão (com splashart, nome, categoria(s), skins, lore, infos, stats, skills, dicas pra jogar com e dicas para jogar contra)
-- [ ] Busca por invocador
-- [ ] Listagem dos dados do invocador (maestrias, nível, elo, winrate)
+- [x] Busca por invocador
+- [x] Listagem dos dados do invocador (maestrias, nível, elo, winrate)
 - [ ] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
 
 ## 👩‍💻 Tecnologias
