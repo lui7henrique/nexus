@@ -3,7 +3,7 @@
 ## 💻 Projeto
 
 LolChampions é excelente para quem gosta de explorar todos os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
-> Acesse em: Não disponível ainda :(
+> Acesse em: https://lol-six.vercel.app/
 
 ## 🧠 To do
 - [x] Readme
