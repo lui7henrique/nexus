@@ -1,9 +1,17 @@
-# 👑 LolChampions
+# 🐦 Nexus
+
+## 🖼 Imagens
+![nexus](https://user-images.githubusercontent.com/70612836/125513046-aa00057a-6db4-48cc-9aa6-b8f37190e938.png)
+
+
+&nbsp;
 
 ## 💻 Projeto
 
 LolChampions é excelente para quem gosta de explorar todos os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
 > Acesse em: https://lol-six.vercel.app/
+
+&nbsp;
 
 ## 🧠 To do
 - [x] Readme
@@ -11,9 +19,12 @@ LolChampions é excelente para quem gosta de explorar todos os campeões do univ
 - [x] Página de campeão (com splashart, nome, categoria(s), skins, lore, infos, stats, skills, dicas pra jogar com e dicas para jogar contra)
 - [x] Busca por invocador
 - [x] Listagem dos dados do invocador (maestrias, nível, elo, winrate)
-- [ ] Página de itens 
-- [ ] Página de ícones
+- [x] Página de itens 
+- [x] Página de ícones
 - [ ] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
+
+&nbsp;
+
 
 ## 👩‍💻 Tecnologias
 
