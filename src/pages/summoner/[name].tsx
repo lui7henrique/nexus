@@ -17,21 +17,20 @@ import {
   MatchInfos,
   Rank,
 } from "../../types/summoner";
-import { winRate } from "../../utils/winrate";
-import { aroundNumber } from "../../utils/aroundNumber";
 import Link from "next/link";
 import { Tier } from "../../components/Tier";
 import { Mastery as MasteryItem } from "../../components/Mastery";
+import { MatchDto } from "twisted/dist/models-dto";
 
 export default function SummonerPage(summonerByName: any) {
   const summoner: Summoner = summonerByName.summonerByName;
-  const matches: MatchType[] = summonerByName.matches;
+  const matches: MatchType[] = summonerByName.matches.slice(0, 20);
   const masteries: Mastery[] = summonerByName.masteries.slice(0, 9);
-  const matchInfos: MatchInfos = summonerByName.matchInfos;
   const rank: Rank[] = summonerByName.rank;
 
   return (
     <div className={styles.container}>
+      <title>Nexus | {summoner.name}</title>
       <Header />
 
       <main>
@@ -73,74 +72,7 @@ export default function SummonerPage(summonerByName: any) {
                   alt=""
                   className={styles.principalChampion}
                 />
-                <section className={styles.teams}>
-                  <ul>
-                    {matchInfos.participants
-                      .slice(0, 5)
-                      .map((participant, index) => {
-                        return (
-                          <li
-                            key={participant.championId}
-                            className={styles.team1_player}
-                          >
-                            <img
-                              src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${participant.championId}.png`}
-                              alt=""
-                            />
-                            <Link
-                              href={`/summoner/${
-                                matchInfos.participantIdentities[5 + index]
-                                  .player.summonerName
-                              }`}
-                            >
-                              <a>
-                                <p>
-                                  {
-                                    matchInfos.participantIdentities[index]
-                                      .player.summonerName
-                                  }
-                                </p>
-                              </a>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                  </ul>
-
-                  <ul>
-                    {matchInfos.participants
-                      .slice(5, 10)
-                      .map((participant, index) => {
-                        return (
-                          <li
-                            key={participant.championId}
-                            className={styles.team2_player}
-                          >
-                            <img
-                              key={participant.championId}
-                              src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${participant.championId}.png`}
-                              alt=""
-                            />
-                            <Link
-                              href={`/summoner/${
-                                matchInfos.participantIdentities[5 + index]
-                                  .player.summonerName
-                              }`}
-                            >
-                              <a>
-                                <p>
-                                  {
-                                    matchInfos.participantIdentities[5 + index]
-                                      .player.summonerName
-                                  }
-                                </p>
-                              </a>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                  </ul>
-                </section>
+                <section className={styles.teams}></section>
               </div>
             );
           })}
@@ -152,28 +84,44 @@ export default function SummonerPage(summonerByName: any) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const nick = ctx.query.name;
+
+  // informações do invocador
   const dataSummoner = getSummonerByName(nick as string);
   const summonerByName: Summoner = (await dataSummoner).response;
 
-  const dataMatches = getMatchesByEncryptedAccountId(summonerByName.accountId);
-  const matches = (await dataMatches).response.matches.slice(0, 2);
-
+  // elo do invocaodr
   const dataRank = getLeagueEntriesBySummonerID(summonerByName.id);
   const rank = (await dataRank).response;
 
+  // maestrias do invocaodr
   const dataMasteries = getChampionsMasteryBySummoner(summonerByName.id);
   const masteries = (await dataMasteries).response;
 
-  const dataMatch = getMatchByGameId(matches[1].gameId);
-  const matchInfos = (await dataMatch).response;
+  // partidas recentes do invocador
+  const dataMatches = getMatchesByEncryptedAccountId(summonerByName.accountId);
+  const matches = (await dataMatches).response.matches;
+
+  const infos = new Array();
+  matches.slice(0, 9).forEach(async (match) => {
+    await getMatchByGameId(match.gameId).then((res) => {
+      infos.push(res.response);
+      console.log(infos.length);
+      const teste = infos;
+      return teste;
+    });
+  });
+
+  const matchesInfos = matches
+    .slice(0, 10)
+    .map(async (match) => await getMatchByGameId(match.gameId));
 
   return {
     props: {
       summonerByName,
       matches,
       masteries,
-      matchInfos,
       rank,
+      infos,
     },
   };
 };

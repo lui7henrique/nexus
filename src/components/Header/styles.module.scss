@@ -21,6 +21,10 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
+
+      @media (max-width: 478px) {
+        display: none;
+      }
     }
 
     nav {
