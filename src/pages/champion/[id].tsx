@@ -6,6 +6,7 @@ import { MdArrowBack } from "react-icons/md";
 import Link from "next/link";
 import styled from "styled-components";
 import styles from "./styles.module.scss";
+import { SwiperSkins } from "../../components/SwiperSkins";
 
 interface IHeadingStyled {
   background: string;
@@ -117,19 +118,8 @@ export default function Champion({
       <div className={styles.divider}>
         <h1>Skins</h1>
       </div>
-      <div className={styles.skins}>
-        {champion.skins.map((skin) => {
-          return (
-            <div key={skin.id} className={styles.skin}>
-              <h1>{skin.name}</h1>
-              <img
-                src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_${skin.num}.jpg`}
-                alt=""
-              />
-            </div>
-          );
-        })}
-      </div>
+
+      <SwiperSkins skins={champion.skins} champion={champion.id} />
     </div>
   );
 }

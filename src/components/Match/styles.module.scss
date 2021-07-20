@@ -1,0 +1,153 @@
+.match {
+  background: var(--shape);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  filter: brightness(0.8);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.win {
+    border-right: 10px solid green;
+  }
+  &.defeat {
+    border-right: 10px solid var(--primary);
+  }
+
+  &:hover {
+    filter: brightness(1);
+  }
+
+  .principalChampion {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }
+
+  > div {
+    display: flex;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      p {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.05rem;
+      width: 250px;
+
+      img {
+        width: 30px;
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      div {
+        background: var(--background);
+        color: var(--background);
+        border-radius: 5px;
+        width: 30px;
+      }
+    }
+  }
+
+  .teams {
+    display: flex;
+    width: 220px;
+
+    .team1 {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      div {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-bottom: 0.1rem;
+        align-items: center;
+        gap: 0.5rem;
+        filter: brightness(0.5);
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+
+        p {
+          font-size: 0.8rem;
+          font-weight: normal;
+          max-width: 75px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        img {
+          width: 20px;
+          border-radius: 50%;
+        }
+
+        &.principalPlayer {
+          p {
+            font-weight: bold;
+          }
+          filter: brightness(1);
+        }
+        &:hover {
+          filter: brightness(1);
+        }
+      }
+    }
+    .team2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+
+      div {
+        display: flex;
+        margin-bottom: 0.1rem;
+        align-items: center;
+        gap: 0.5rem;
+        filter: brightness(0.5);
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+
+        p {
+          font-size: 0.8rem;
+          font-weight: normal;
+          max-width: 75px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        img {
+          width: 20px;
+          border-radius: 50%;
+        }
+
+        &.principalPlayer {
+          p {
+            font-weight: bold;
+          }
+          filter: brightness(1);
+        }
+
+        &:hover {
+          filter: brightness(1);
+        }
+      }
+    }
+  }
+}

@@ -21,12 +21,14 @@ import Link from "next/link";
 import { Tier } from "../../components/Tier";
 import { Mastery as MasteryItem } from "../../components/Mastery";
 import { MatchDto } from "twisted/dist/models-dto";
+import { Match } from "../../components/Match";
 
 export default function SummonerPage(summonerByName: any) {
   const summoner: Summoner = summonerByName.summonerByName;
-  const matches: MatchType[] = summonerByName.matches.slice(0, 20);
+  const matches: MatchType[] = summonerByName.matches.slice(0, 10);
   const masteries: Mastery[] = summonerByName.masteries.slice(0, 9);
   const rank: Rank[] = summonerByName.rank;
+  const matchesInfos: MatchInfos[] = summonerByName.matchesInfos;
 
   return (
     <div className={styles.container}>
@@ -63,20 +65,17 @@ export default function SummonerPage(summonerByName: any) {
           </div>
         </section>
 
-        <aside>
-          {matches.map((match) => {
+        {/* <aside>
+          {matches.map((match, index) => {
             return (
-              <div key={match.gameId}>
-                <img
-                  src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${match.champion}.png`}
-                  alt=""
-                  className={styles.principalChampion}
-                />
-                <section className={styles.teams}></section>
-              </div>
+              <Match
+                key={match.gameId}
+                champion={match.champion}
+                match={matchesInfos[index]}
+              />
             );
           })}
-        </aside>
+        </aside> */}
       </main>
     </div>
   );
@@ -101,19 +100,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const dataMatches = getMatchesByEncryptedAccountId(summonerByName.accountId);
   const matches = (await dataMatches).response.matches;
 
-  const infos = new Array();
-  matches.slice(0, 9).forEach(async (match) => {
-    await getMatchByGameId(match.gameId).then((res) => {
-      infos.push(res.response);
-      console.log(infos.length);
-      const teste = infos;
-      return teste;
-    });
-  });
-
-  const matchesInfos = matches
-    .slice(0, 10)
-    .map(async (match) => await getMatchByGameId(match.gameId));
+  const matchesInfos = await Promise.all(
+    matches.slice(0, 10).map(async (match) => {
+      const res = await getMatchByGameId(match.gameId);
+      return res.response;
+    })
+  );
 
   return {
     props: {
@@ -121,7 +113,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       matches,
       masteries,
       rank,
-      infos,
+      matchesInfos,
     },
   };
 };

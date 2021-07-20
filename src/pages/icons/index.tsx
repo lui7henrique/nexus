@@ -10,7 +10,6 @@ export default function Icons({ data }: any) {
   const [targets, setTargets] = useState(50);
 
   const [currentTargets, setcurrentTargets] = useState(icons.slice(0, targets));
-  console.log(currentTargets);
 
   function handleLoadmore() {
     setTargets(targets + 50);

@@ -87,45 +87,6 @@
     }
   }
 
-  .skins {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (max-width: 500px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    .skin {
-      display: grid;
-      gap: 1rem;
-      background: var(--shape);
-      border-radius: 0.5rem 0.5rem;
-      transition: all 0.2s;
-      filter: brightness(0.8);
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        filter: brightness(1);
-      }
-
-      h1 {
-        font-size: 1.2rem;
-        padding: 1rem 1rem 0 1rem;
-        text-transform: full-width;
-        color: var(--title);
-      }
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 0 0 0.5rem 0.5rem;
-      }
-    }
-  }
-
   .divider {
     display: flex;
     align-items: center;

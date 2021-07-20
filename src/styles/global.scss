@@ -39,3 +39,12 @@ body {
 button {
   cursor: pointer;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--primary) !important;
+  background: var(--shape);
+  padding: 2rem;
+  border-radius: 50%;
+  transform: scale(0.8);
+}

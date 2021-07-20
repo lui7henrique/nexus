@@ -48,11 +48,6 @@ export default function Champions({ data }: any) {
 
       <Header />
       <main className={styles.content}>
-        <section className={styles.infos}>
-          <h1>🚧</h1>
-          <p>Em construção</p>
-        </section>
-
         <div className={styles.champions}>
           <section className={styles.championsList}>
             {champions.map((champion) => {
