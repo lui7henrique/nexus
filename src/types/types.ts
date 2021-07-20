@@ -6,7 +6,7 @@ export type ChampionInfos = {
     full: string;
     sprite: string;
   };
-  skins: [{ id: string; num: number; name: string; chromas: string }];
+  skins: Skin[];
   lore: string;
   blurb: string;
   allytips: string[];
@@ -63,4 +63,11 @@ export type ChampionInfos = {
 
 export type ChampionFull = {
   champion: ChampionInfos;
+};
+
+type Skin = {
+  chromas: boolean;
+  id: string;
+  name: string;
+  num: number;
 };
