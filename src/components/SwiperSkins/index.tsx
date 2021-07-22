@@ -31,7 +31,7 @@ const Skin = styled.div<ISkinInterface>`
   font-size: 2rem;
   filter: brightness(0.7);
   transition: all 0.2s ease-in-out;
-  border-radius: 0.5rem;
+  border-radius: 5px;
 
   &:hover {
     filter: brightness(1);

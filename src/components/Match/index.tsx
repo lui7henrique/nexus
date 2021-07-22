@@ -2,10 +2,10 @@
 import { MatchInfos } from "../../types/summoner";
 import styles from "./styles.module.scss";
 import { TimestampConverter } from "../../utils/timestampConverter";
+import { FormatSpell } from "../../utils/formatSpell";
 import { useRouter } from "next/router";
-import "./styles.module.scss";
-import styled from "styled-components";
 import { Item } from "../Item";
+import "./styles.module.scss";
 
 type MatchType = {
   match: MatchInfos;
@@ -18,7 +18,8 @@ export function Match({ champion, match }: MatchType) {
 
   const principalPlayerIdentity = match.participantIdentities.filter(
     (participantIdentity) =>
-      participantIdentity.player.summonerName === principalPlayerName
+      participantIdentity.player.summonerName.toLowerCase() ===
+      principalPlayerName
   );
 
   const { participantId } = principalPlayerIdentity[0];
@@ -28,11 +29,12 @@ export function Match({ champion, match }: MatchType) {
   );
 
   const principalPlayer = principalPlayerInformations[0];
+  console.log(principalPlayer);
 
   return (
     <div
       className={`${styles.match} ${
-        principalPlayer.stats.win === true ? styles.win : styles.defeat
+        principalPlayer.stats.win ? styles.win : styles.defeat
       }`}
     >
       <div>
@@ -42,8 +44,18 @@ export function Match({ champion, match }: MatchType) {
           className={styles.principalChampion}
         />
         <div>
-          <p>{match.gameMode}</p>
-          <p>{TimestampConverter(match.gameCreation)}</p>
+          <img
+            src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_${FormatSpell(
+              principalPlayer.spell1Id
+            )}.png`}
+            alt={String(principalPlayer.spell1Id)}
+          />
+          <img
+            src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_${FormatSpell(
+              principalPlayer.spell2Id
+            )}.png`}
+            alt={String(principalPlayer.spell2Id)}
+          />
         </div>
       </div>
 
@@ -57,11 +69,30 @@ export function Match({ champion, match }: MatchType) {
           <Item icon={principalPlayer.stats.item5} />
           <Item icon={principalPlayer.stats.item6} />
         </div>
-        <div>
-          <p>
-            {principalPlayer.stats.kills} / {principalPlayer.stats.deaths} /{" "}
-            {principalPlayer.stats.assists}
-          </p>
+        <div className={styles.stats}>
+          <div>
+            <img
+              src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/damage_skins_icon.svg"
+              alt=""
+            />
+            <p>
+              {principalPlayer.stats.kills} / {principalPlayer.stats.deaths} /{" "}
+              {principalPlayer.stats.assists}
+            </p>
+          </div>
+
+          <div>
+            <img src="https://i.ibb.co/VSKK0Fh/icon-minions.png" alt="Gold" />
+            <p>{principalPlayer.stats.totalMinionsKilled}</p>
+          </div>
+
+          <div>
+            <img
+              src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/svg/backpack-light-gold.svg"
+              alt="Gold"
+            />
+            <p>{principalPlayer.stats.goldEarned}</p>
+          </div>
         </div>
       </main>
 
@@ -72,8 +103,9 @@ export function Match({ champion, match }: MatchType) {
               <div
                 key={partcipant.participantId}
                 className={
-                  match.participantIdentities[index].player.summonerName ===
-                  principalPlayerName
+                  match.participantIdentities[
+                    index
+                  ].player.summonerName.toLowerCase() === principalPlayerName
                     ? styles.principalPlayer
                     : ""
                 }
@@ -93,8 +125,9 @@ export function Match({ champion, match }: MatchType) {
               <div
                 key={partcipant.participantId}
                 className={
-                  match.participantIdentities[5 + index].player.summonerName ===
-                  principalPlayerName
+                  match.participantIdentities[
+                    5 + index
+                  ].player.summonerName.toLowerCase() === principalPlayerName
                     ? styles.principalPlayer
                     : ""
                 }

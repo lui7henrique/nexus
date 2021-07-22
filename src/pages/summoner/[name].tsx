@@ -51,8 +51,8 @@ export default function SummonerPage(summonerByName: any) {
 
           {rank.length >= 2 ? (
             <>
-              <Tier unformattedRank={rank[0]} />
               <Tier unformattedRank={rank[1]} />
+              <Tier unformattedRank={rank[0]} />
             </>
           ) : (
             <Tier unformattedRank={rank[0]} />
@@ -65,7 +65,7 @@ export default function SummonerPage(summonerByName: any) {
           </div>
         </section>
 
-        {/* <aside>
+        <aside>
           {matches.map((match, index) => {
             return (
               <Match
@@ -75,7 +75,7 @@ export default function SummonerPage(summonerByName: any) {
               />
             );
           })}
-        </aside> */}
+        </aside>
       </main>
     </div>
   );

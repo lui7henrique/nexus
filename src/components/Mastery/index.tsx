@@ -23,7 +23,7 @@ export function Mastery(unformattedMastery: any) {
         <p>{mastery.championPoints}</p>
         {mastery.chestGranted && (
           <img
-            src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-collections/global/default/images/item-element/hextech-chest.png"
+            src="https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/icon-chest-acquired.png"
             alt="Chest"
             className={styles.chest}
           />

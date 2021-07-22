@@ -1,7 +1,7 @@
 .match {
   background: var(--shape);
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   filter: brightness(0.8);
   transition: all 0.2s ease-in-out;
   display: flex;
@@ -9,10 +9,10 @@
   justify-content: space-between;
 
   &.win {
-    border-right: 10px solid green;
+    border-right: 5px solid rgb(0, 80, 0);
   }
   &.defeat {
-    border-right: 10px solid var(--primary);
+    border-right: 5px solid var(--primary);
   }
 
   &:hover {
@@ -31,6 +31,14 @@
     > div {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+
+      > img {
+        width: 25px;
+        border-radius: 5px;
+        margin-left: -10px;
+        margin-right: 15px;
+      }
     }
   }
 
@@ -38,19 +46,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    div {
-      p {
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-    }
+    width: 250px;
 
     .items {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 0.05rem;
-      width: 250px;
+      gap: 0.4rem;
 
       img {
         width: 30px;
@@ -58,11 +59,39 @@
         transition: all 0.2s ease-in-out;
       }
 
-      div {
+      > div {
         background: var(--background);
         color: var(--background);
         border-radius: 5px;
         width: 30px;
+        display: flex;
+      }
+    }
+
+    .stats {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: -10px;
+      opacity: 0.7;
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        img {
+          width: 1rem;
+        }
+        &:nth-child(2) {
+          img {
+            width: 0.8rem;
+          }
+        }
+      }
+      p {
+        font-weight: 600;
+        font-size: 0.9rem;
       }
     }
   }

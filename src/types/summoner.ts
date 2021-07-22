@@ -69,12 +69,61 @@ export type MatchInfos = {
     spell1Id: number;
     spell2Id: number;
     stats: Stats;
+    timeline: Timeline;
   }[];
   platformId: string;
   queueId: number;
   remake: boolean;
   seasonId: number;
   teams: any;
+};
+
+type Timeline = {
+  creepsPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
+  csDiffPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
+  damageTakenDiffPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
+  damageTakenPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
+  goldPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
+  lane: string;
+  participantId: number;
+  role: string;
+  xpDiffPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
+  xpPerMinDeltas: {
+    "10-20": number;
+    " 0-10": number;
+    "30-end": number;
+    "20-30": number;
+  };
 };
 
 export type Stats = {

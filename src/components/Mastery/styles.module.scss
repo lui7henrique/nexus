@@ -1,7 +1,7 @@
 .mastery {
   background: #161617;
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   transition: all 0.2s ease-in-out;
   display: flex;
   align-items: center;
@@ -29,8 +29,8 @@
     width: 100%;
     justify-content: space-between;
     .chest {
-      width: 25px;
-      height: 25px;
+      transform: scale(0.8);
+      opacity: 0.3;
     }
   }
 }
