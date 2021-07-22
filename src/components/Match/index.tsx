@@ -3,6 +3,8 @@ import { MatchInfos } from "../../types/summoner";
 import styles from "./styles.module.scss";
 import { TimestampConverter } from "../../utils/timestampConverter";
 import { FormatSpell } from "../../utils/formatSpell";
+import { FormatQueueId } from "../../utils/formatQueueId";
+import { FormatSecondsToMinutes } from "../../utils/formatSecondsToMinutes";
 import { useRouter } from "next/router";
 import { Item } from "../Item";
 import "./styles.module.scss";
@@ -29,7 +31,7 @@ export function Match({ champion, match }: MatchType) {
   );
 
   const principalPlayer = principalPlayerInformations[0];
-  console.log(principalPlayer);
+  console.log(match);
 
   return (
     <div
@@ -38,24 +40,44 @@ export function Match({ champion, match }: MatchType) {
       }`}
     >
       <div>
-        <img
-          src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champion}.png`}
-          alt=""
-          className={styles.principalChampion}
-        />
         <div>
+          <div className={styles.level_role}>
+            <p></p>
+            <img
+              src={
+                principalPlayer.timeline.lane !== "NONE"
+                  ? `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/svg/position-${principalPlayer.timeline.lane.toLowerCase()}.svg`
+                  : "https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-uikit/global/default/images/info-icon.svg"
+              }
+              alt={principalPlayer.timeline.lane}
+            />
+          </div>
           <img
-            src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_${FormatSpell(
-              principalPlayer.spell1Id
-            )}.png`}
-            alt={String(principalPlayer.spell1Id)}
+            src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champion}.png`}
+            alt=""
+            className={styles.principalChampion}
           />
-          <img
-            src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner_${FormatSpell(
-              principalPlayer.spell2Id
-            )}.png`}
-            alt={String(principalPlayer.spell2Id)}
-          />
+        </div>
+        <div className={styles.details}>
+          <h1>{FormatQueueId(match.queueId)} </h1>
+          <h2>
+            {FormatSecondsToMinutes(match.gameDuration)} •{" "}
+            {TimestampConverter(match.gameCreation)}
+          </h2>
+          <div>
+            <img
+              src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner${FormatSpell(
+                principalPlayer.spell1Id
+              )}.png`}
+              alt={String(principalPlayer.spell1Id)}
+            />
+            <img
+              src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/data/spells/icons2d/summoner${FormatSpell(
+                principalPlayer.spell2Id
+              )}.png`}
+              alt={String(principalPlayer.spell2Id)}
+            />
+          </div>
         </div>
       </div>
 

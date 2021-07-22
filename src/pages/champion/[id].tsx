@@ -7,6 +7,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import styles from "./styles.module.scss";
 import { SwiperSkins } from "../../components/SwiperSkins";
+import { FaDollarSign } from "react-icons/fa";
 
 interface IHeadingStyled {
   background: string;
@@ -15,11 +16,14 @@ interface IHeadingStyled {
 const Banner = styled.div<IHeadingStyled>`
   width: 100%;
   height: 400px;
-  background-image: ${(props) => `url(${props.background})`};
+  background-image: ${(props) =>
+    `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${props.background}_0.jpg)`};
   background-position: fixed;
   background-position: 50% 20%;
-  @media (max-width: 500px) {
-    background-position: 90% 100%;
+  @media (max-width: 768px) {
+    background-image: ${(props) =>
+      `url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${props.background}_0.jpg)`};
+    background-size: 101%;
   }
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -57,8 +61,6 @@ export default function Champion({
 
   const champion = semiFormatted[0];
 
-  const splashArt = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
-
   return (
     <div className={styles.container}>
       <title>Nexus | {champion.name}</title>
@@ -73,7 +75,7 @@ export default function Champion({
         </Link>
       </div>
 
-      <Banner background={splashArt}>
+      <Banner background={champion.id}>
         <div>
           <h1>{champion.name}</h1>
         </div>

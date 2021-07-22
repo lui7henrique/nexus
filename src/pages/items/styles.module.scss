@@ -8,11 +8,23 @@
   .content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 978px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 640px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     gap: 1rem;
 
     > div {
       display: flex;
       width: 270px;
+      @media (max-width: 640px) {
+        width: 100%;
+      }
       align-items: center;
       background: var(--shape);
       overflow: hidden;

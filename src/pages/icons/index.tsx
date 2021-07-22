@@ -7,12 +7,12 @@ import styles from "./styles.module.scss";
 
 export default function Icons({ data }: any) {
   const icons: IconType[] = Object.values(data.data);
-  const [targets, setTargets] = useState(50);
+  const [targets, setTargets] = useState(70);
 
   const [currentTargets, setcurrentTargets] = useState(icons.slice(0, targets));
 
   function handleLoadmore() {
-    setTargets(targets + 50);
+    setTargets(targets + 70);
     setcurrentTargets(icons.slice(0, targets));
   }
 

@@ -32,6 +32,11 @@ const Skin = styled.div<ISkinInterface>`
   filter: brightness(0.7);
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
+  @media (max-width: 768px) {
+    background-image: ${(props) =>
+      `url(http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${props.champion}_${props.skin}.jpg)`};
+    background-size: 100%;
+  }
 
   &:hover {
     filter: brightness(1);

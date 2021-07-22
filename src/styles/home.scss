@@ -8,12 +8,10 @@
   .content {
     display: flex;
     align-items: center;
-
     img {
       transform: translateX(-50px);
       @media (max-width: 768px) {
-        width: 20%;
-        height: 20%;
+        display: none;
       }
     }
 
@@ -23,6 +21,16 @@
       margin: 25% auto;
       transform: translateX(50px);
       z-index: 99;
+      @media (max-width: 768px) {
+        margin: 50% 0;
+        margin-left: -2rem;
+      }
+
+      p {
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
 
       form {
         display: flex;
@@ -33,7 +41,10 @@
           border: none;
           outline: none;
           padding: 0 1rem;
-          width: 170%;
+          width: 150%;
+          @media (max-width: 768px) {
+            width: 90%;
+          }
           color: var(--text);
           border-radius: 0.5rem 0 0 0.5rem;
         }
