@@ -59,7 +59,7 @@ export function Match({ champion, match }: MatchType) {
         </div>
       </div>
 
-      <main>
+      <main className={styles.infos}>
         <div className={styles.items}>
           <Item icon={principalPlayer.stats.item0} />
           <Item icon={principalPlayer.stats.item1} />
