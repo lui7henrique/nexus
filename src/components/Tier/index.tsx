@@ -8,15 +8,6 @@ import { FormatGame } from "../../utils/formatGame";
 export function Tier(unformattedRank: any) {
   const rank: Rank = unformattedRank.unformattedRank;
 
-  function formatQueueType(queueType: string) {
-    switch (queueType) {
-      case "RANKED_SOLO_5x5":
-        return "SOLO/DUO";
-      case "RANKED_FLEX_SR":
-        return "FLEX";
-    }
-  }
-
   return (
     <div className={styles.tier}>
       <img

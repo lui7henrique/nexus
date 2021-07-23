@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { MdSearch } from "react-icons/md";
+import React from "react";
 import { Header } from "../components/Header";
-import { useRouter } from "next/router";
 
 export default function Page404() {
   return (
