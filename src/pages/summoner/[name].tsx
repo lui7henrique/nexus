@@ -20,7 +20,6 @@ import {
 import Link from "next/link";
 import { Tier } from "../../components/Tier";
 import { Mastery as MasteryItem } from "../../components/Mastery";
-import { MatchDto } from "twisted/dist/models-dto";
 import { Match } from "../../components/Match";
 
 export default function SummonerPage(summonerByName: any) {
@@ -84,36 +83,48 @@ export default function SummonerPage(summonerByName: any) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const nick = ctx.query.name;
 
-  // informações do invocador
-  const dataSummoner = getSummonerByName(nick as string);
-  const summonerByName: Summoner = (await dataSummoner).response;
+  try {
+    // informações do invocador
+    const dataSummoner = getSummonerByName(nick as string);
+    const summonerByName: Summoner = (await dataSummoner).response;
 
-  // elo do invocaodr
-  const dataRank = getLeagueEntriesBySummonerID(summonerByName.id);
-  const rank = (await dataRank).response;
+    // elo do invocaodr
+    const dataRank = getLeagueEntriesBySummonerID(summonerByName.id);
+    const rank = (await dataRank).response;
 
-  // maestrias do invocaodr
-  const dataMasteries = getChampionsMasteryBySummoner(summonerByName.id);
-  const masteries = (await dataMasteries).response;
+    // maestrias do invocaodr
+    const dataMasteries = getChampionsMasteryBySummoner(summonerByName.id);
+    const masteries = (await dataMasteries).response;
 
-  // partidas recentes do invocador
-  const dataMatches = getMatchesByEncryptedAccountId(summonerByName.accountId);
-  const matches = (await dataMatches).response.matches;
+    // partidas recentes do invocador
+    const dataMatches = getMatchesByEncryptedAccountId(
+      summonerByName.accountId
+    );
+    const matches = (await dataMatches).response.matches;
 
-  const matchesInfos = await Promise.all(
-    matches.slice(0, 10).map(async (match) => {
-      const res = await getMatchByGameId(match.gameId);
-      return res.response;
-    })
-  );
+    const matchesInfos = await Promise.all(
+      matches.slice(0, 10).map(async (match) => {
+        const res = await getMatchByGameId(match.gameId);
+        return res.response;
+      })
+    );
 
-  return {
-    props: {
-      summonerByName,
-      matches,
-      masteries,
-      rank,
-      matchesInfos,
-    },
-  };
+    return {
+      props: {
+        summonerByName,
+        matches,
+        masteries,
+        rank,
+        matchesInfos,
+      },
+    };
+  } catch {
+    return {
+      props: {},
+      redirect: {
+        destination: "/403",
+        permanent: false,
+      },
+    };
+  }
 };

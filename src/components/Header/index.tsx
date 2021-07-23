@@ -20,14 +20,14 @@ export function Header() {
           </Link>
           <Link href="/champions">
             <a className={asPath === "/champions" ? styles.active : ""}>
-              Champions
+              Campeões
             </a>
           </Link>
           <Link href="/items">
-            <a className={asPath === "/items" ? styles.active : ""}>Items</a>
+            <a className={asPath === "/items" ? styles.active : ""}>Itens</a>
           </Link>
           <Link href="/icons">
-            <a className={asPath === "/icons" ? styles.active : ""}>Icons</a>
+            <a className={asPath === "/icons" ? styles.active : ""}>Ícones</a>
           </Link>
         </nav>
       </div>

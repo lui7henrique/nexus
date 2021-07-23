@@ -31,7 +31,6 @@ export function Match({ champion, match }: MatchType) {
   );
 
   const principalPlayer = principalPlayerInformations[0];
-  console.log(match);
 
   return (
     <div
