@@ -84,6 +84,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const nick = ctx.query.name;
 
   try {
+    console.log("try");
+
     // informações do invocador
     const dataSummoner = getSummonerByName(nick as string);
     const summonerByName: Summoner = (await dataSummoner).response;
