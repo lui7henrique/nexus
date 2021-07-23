@@ -21,7 +21,11 @@ LolChampions é excelente para quem gosta de explorar todos os campeões do univ
 - [x] Listagem dos dados do invocador (maestrias, nível, elo, winrate)
 - [x] Página de itens 
 - [x] Página de ícones
-- [ ] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
+- [x] Listagem de partidas com: adversários, aliados, itens, kda, e vitória/derrota.
+- [ ] Página de cada partida com [gráficos](https://apexcharts.com/docs/react-charts/) de dano, itens, timeline, etc...
+- [ ] [Skeleton](https://www.npmjs.com/package/react-loading-skeleton) loading pages 
+- [ ] [Infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
+- [ ] Detalhes de cada item: preço, atributos, etc...
 
 &nbsp;
 
