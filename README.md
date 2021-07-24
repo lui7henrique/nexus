@@ -9,7 +9,8 @@
 ## 💻 Projeto
 
 Nexus é excelente para quem gosta de explorar sobre universo de League of Legends, com informações de invocadores como histórico de partidas, maestrias, nível, taxa de vitória, entre outros...
-Além da listagem de todos os campeões do jogo, com página específica de cada um, contendo história, habilidades, e skins. Incluindo também uma página com todos os ícones e items do game! > Acesse em: https://lol-six.vercel.app/
+Além da listagem de todos os campeões do jogo, com página específica de cada um, contendo história, habilidades, e skins. Incluindo também uma página com todos os ícones e items do game! 
+> Acesse em: https://nexus-lol.vercel.app/ ou 
 
 &nbsp;
 
