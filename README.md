@@ -8,7 +8,7 @@
 
 ## 💻 Projeto
 
-LolChampions é excelente para quem gosta de explorar todos os campeões do universo de Runiterra, lendo sobre sua história, skills, skins e muito mais!
+Nexus é excelente para quem gosta de explorar todos os campeões do universo de Runeterra, lendo sobre sua história, skills, skins e muito mais!
 > Acesse em: https://lol-six.vercel.app/
 
 &nbsp;
