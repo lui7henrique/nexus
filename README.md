@@ -27,6 +27,9 @@ Além da listagem de todos os campeões do jogo, com página específica de cada
 - [ ] [Skeleton](https://www.npmjs.com/package/react-loading-skeleton) loading pages 
 - [ ] [Infinite scroll](https://www.npmjs.com/package/react-infinite-scroll-component)
 - [ ] Detalhes de cada item: preço, atributos, etc...
+- [ ] Filtros nas páginas de itens e campeões 
+- [ ] Página de maestrias
+- [ ] Página clash
 
 &nbsp;
 
